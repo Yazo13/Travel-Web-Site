@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="/path/to/your/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yazo Trevels</title>
+    <script>
+      window.onload = function() {
+          var canvas = document.createElement('canvas');
+          canvas.width = 64;
+          canvas.height = 64;
+          var ctx = canvas.getContext('2d');
+      
+          var radius = 25;
+          var x = 0;
+          var y = 0;
+          var width = canvas.width;
+          var height = canvas.height;
+      
+          // Draw a rounded rectangle
+          ctx.beginPath();
+          ctx.moveTo(x + radius, y);
+          ctx.lineTo(x + width - radius, y);
+          ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+          ctx.lineTo(x + width, y + height - radius);
+          ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+          ctx.lineTo(x + radius, y + height);
+          ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+          ctx.lineTo(x, y + radius);
+          ctx.quadraticCurveTo(x, y, x + radius, y);
+          ctx.closePath();
+          ctx.clip();  // Clip to the rounded rectangle
+      
+          // Load and draw the image
+          var img = new Image();
+          img.src = '/src/assets/GarGari_Logo.jpg'; // Path to your image
+      
+          img.onload = function() {
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      
+              // Convert canvas to an image and set as favicon
+              var link = document.createElement('link');
+              link.rel = 'icon';
+              link.href = canvas.toDataURL('image/png');
+              document.head.appendChild(link);
+          };
+      };
+      </script>
+      
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
