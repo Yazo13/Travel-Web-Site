@@ -1,3 +1,4 @@
+/* Navbar styles */
 .Navbar {
   width: 100%;
   display: flex;
@@ -69,21 +70,71 @@
   font-size: 1.5rem;
 }
 
-/* responsive section */
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+.userbox{
+  background-color: red;
+}
+.modalContainer {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
 
-@media screen and (max-width: 450px) {
-  .Navbar {
-    padding: 0.6rem 0rem;
-  }
+.modalContainer h5 {
+  margin-bottom: 1rem;
+}
 
-  .brand {
-    width: 100vw;
-    display: flex;
-    padding: 0 1rem;
-    justify-content: space-between;
-    align-items: center;
-  }
+.modalContainer input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
+.modalContainer button {
+  padding: 0.5rem 1rem;
+  background-color: rgb(243, 111, 9);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease-in-out;
+  margin: 10px;
+}
+
+.modalContainer button:hover {
+  background-color: rgb(243, 145, 70);
+}
+
+.modalContainer .toggleButton {
+  background: none;
+  border: none;
+  background-color: rgb(250, 108, 0);;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 1rem;
+}
+
+/* Responsive section */
+@media screen and (max-width: 768px) {
   .hamburger {
     display: block;
     cursor: pointer;
@@ -92,7 +143,7 @@
   .Navbar ul {
     flex-direction: column;
     position: fixed;
-    top: 7%;
+    top: 60px;
     align-items: center;
     background-color: #fff;
     width: 100%;
@@ -101,6 +152,7 @@
     display: none;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    z-index: 1;
   }
 
   .open {
@@ -112,6 +164,21 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .Navbar {
+    padding: 0.6rem 0;
+  }
+
+  .brand {
+    width: 100vw;
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .Navbar ul {
     top: 6%;
@@ -119,6 +186,44 @@
 
   .NavLogo {
     font-size: 1.2rem;
-    text-transform: uppercase;
+  }
+}
+.userBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between items */
+}
+
+.userBox a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out;
+}
+
+.userBox a:hover {
+  color: rgb(243, 111, 9);
+  cursor: pointer;
+}
+.userBox p{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: black;
+  transition: color 0.2s ease-in-out;
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .userBox {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
