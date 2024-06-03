@@ -1,24 +1,50 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import Classes from "../Styles/Hero.module.css";
 import Banner from "../assets/Main Photo.avif";
 
 function Hero() {
   const [modal, setModal] = useState(false);
+  const [alertModal, setAlertModal] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const signedInUser = localStorage.getItem('user');
+    if (signedInUser) {
+      setUser(JSON.parse(signedInUser));
+    }
+  }, []);
+
+  const handleBookNow = () => {
+    if (user) {
+      setModal(true);
+    } else {
+      setAlertModal(true);
+    }
+  };
 
   return (
     <>
-      <div className={!modal && Classes.open}>
-        <div className={Classes.modalContainer}>
-          <h5>We Receive your information</h5>
-
-          <button onClick={() => setModal(false)}>Ok</button>
+      {modal && (
+        <div className={Classes.modal}>
+          <div className={Classes.modalContainer}>
+            <h5>We Received your information</h5>
+            <button onClick={() => setModal(false)}>Ok</button>
+          </div>
         </div>
-      </div>
+      )}
+
+      {alertModal && (
+        <div className={Classes.alertModal}>
+          <div className={Classes.alertModalContainer}>
+            <h5>Please sign in to book a trip.</h5>
+            <button onClick={() => setAlertModal(false)}>Ok</button>
+          </div>
+        </div>
+      )}
 
       <section id="hero" className={Classes.heroContainer}>
         <div className={Classes.heroimage}>
-          <img src={Banner} alt="" />
+          <img src={Banner} alt="Travel banner" />
         </div>
 
         <div className={Classes.content}>
@@ -32,11 +58,10 @@ function Hero() {
               off-grid adventures
             </p>
           </div>
-
           <div className={Classes.bookingContainer}>
             <div className={Classes.search}>
               <label>Where you want to go</label>
-              <input type="text" placeholder="search your location" />
+              <input type="text" placeholder="Search your location" />
             </div>
 
             <div className={Classes.search}>
@@ -49,7 +74,7 @@ function Hero() {
               <input type="date" />
             </div>
 
-            <button onClick={() => setModal(true)}>book now</button>
+            <button onClick={handleBookNow}>Book Now</button>
           </div>
         </div>
       </section>

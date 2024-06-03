@@ -46,7 +46,7 @@
 
 .box {
   padding: 0.5rem;
-  background-color: rgba(224, 185, 250, 0.35);
+  background-color: rgba(255, 207, 152, 0.35);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -112,7 +112,7 @@
 
 /* responsive section */
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 850px) {
   .recommendation {
     padding: 2rem 1rem;
   }

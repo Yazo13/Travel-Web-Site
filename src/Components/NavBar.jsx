@@ -45,6 +45,8 @@ function NavBar() {
         if (!isSignUp) {
           localStorage.setItem('user', JSON.stringify(response.data.user));
           setUser(response.data.user);
+          window.location.reload()
+
         }
         setModali(false);
       } else {
@@ -59,6 +61,7 @@ function NavBar() {
   const handleSignOut = () => {
     localStorage.removeItem('user');
     setUser(null);
+    window.location.reload()
   };
 
   return (
@@ -88,26 +91,26 @@ function NavBar() {
       )}
 
       <nav className={Classes.Navbar}>
-        <div className={Classes.brand}>
-          <a href="\" className={Classes.NavLogo} onClick={() => window.location.reload()}>
-            Yazo <span>Travels</span>
-          </a>
-          <div className={Classes.hamburger}>
-            {toggle ? (
-              <FontAwesomeIcon
-                icon={faClose}
-                className={Classes.menuIcon}
-                onClick={() => setToggle(false)}
-              />
-            ) : (
-              <FontAwesomeIcon
-                className={Classes.menuIcon}
-                icon={faBars}
-                onClick={() => setToggle(true)}
-              />
-            )}
+          <div className={Classes.brand}>
+            <a href="\" className={Classes.NavLogo} onClick={() => window.location.reload()}>
+              Yazo <span>Travels</span>
+            </a>
+            <div className={Classes.hamburger}>
+              {toggle ? (
+                <FontAwesomeIcon
+                  icon={faClose}
+                  className={Classes.menuIcon}
+                  onClick={() => setToggle(false)}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  className={Classes.menuIcon}
+                  icon={faBars}
+                  onClick={() => setToggle(true)}
+                />
+              )}
+            </div>
           </div>
-        </div>
         <ul className={`${toggle ? Classes.open : ""}`}>
           <li>
             <a href="#hero" className={Classes.active}>

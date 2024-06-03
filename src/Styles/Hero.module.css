@@ -1,3 +1,109 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.623);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+}
+
+.modalContainer {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Alert modal styles */
+.alertModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+}
+
+.alertModalContainer {
+  background: white; /* Light red background for the container */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  border: 2px solid red;
+}
+
+.alertModalContainer h5 {
+  color: red; /* Red text for the message */
+}
+
+.alertModalContainer button {
+  padding: 0.5rem 1rem;
+  background-color: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease-in-out;
+  margin: 10px;
+}
+
+.alertModalContainer button:hover {
+  background-color: darkred;
+}
+
+.title h1 {
+  font-size: 2.5rem;
+}
+
+.nickName {
+  color: orange;
+}
+
+.bookingContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.search label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: orange;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: darkorange;
+}
+
 .heroContainer {
   width: 100%;
   height: 100%;
