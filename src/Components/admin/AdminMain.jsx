@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import User from './blocks/User';
 import Trip from './blocks/Trip';
 import Role from './blocks/Role';
@@ -12,9 +11,9 @@ function AdminPanel() {
       <h1>Admin Panel</h1>
       <h2>User Management</h2>
       <User />
-      {/* <h2>Trip Management</h2>
+      <h2>Trip Management</h2>
       <Trip />
-      <h2>Role Management</h2>
+      {/* <h2>Role Management</h2>
       <Role />
       <h2>Booking Management</h2>
       <Booking /> */}
@@ -22,5 +21,4 @@ function AdminPanel() {
   );
 }
 
-ReactDOM.render(<AdminPanel />, document.getElementById('root'));
 export default AdminPanel

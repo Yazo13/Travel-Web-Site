@@ -15,7 +15,7 @@ function NavBar() {
     password: ''
   });
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(''); // State variable for error message
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const signedInUser = localStorage.getItem('user');
@@ -46,11 +46,10 @@ function NavBar() {
           localStorage.setItem('user', JSON.stringify(response.data.user));
           setUser(response.data.user);
           window.location.reload()
-
         }
         setModali(false);
       } else {
-        setError(response.data.message); // Set the error message
+        setError(response.data.message);
       }
     } catch (error) {
       setError('An unexpected error occurred. Please try again.');
