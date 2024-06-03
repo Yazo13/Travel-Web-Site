@@ -60,31 +60,11 @@ function Recommendation() {
     },
   ];
 
-  const packages = [
-    "The Weekend Break",
-    "The Package Holiday",
-    "The Group Tour",
-    "Long Term Slow Travel",
-  ];
-
   return (
     <section id="recommendation" className="recommendation">
       <div className="title">
         <h1>Recommend</h1>
-        <div className="CategoryBar">
-          <ul>
-            {packages.map((pkg, index) => {
-              return (
-                <li
-                  key={index}
-                  className={active === index + 1 ? "Active" : ""}
-                  onClick={() => setActive(index + 1)}>
-                  {pkg}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        {/*  */}
       </div>
 
       <div className="recommendationBox">

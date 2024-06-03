@@ -15,11 +15,12 @@ function NavBar() {
     password: ''
   });
   const [user, setUser] = useState(null);
+  const [error, setError] = useState(''); // State variable for error message
 
   useEffect(() => {
     const signedInUser = localStorage.getItem('user');
     if (signedInUser) {
-      setUser(JSON.parse(signedInUser)); // Parse the stored JSON string
+      setUser(JSON.parse(signedInUser));
     }
   }, []);
 
@@ -38,7 +39,7 @@ function NavBar() {
         }
       });
 
-      console.log("Response:", response.data.user);
+      console.log("Response:", response.data);
 
       if (response.data.status === 'success') {
         if (!isSignUp) {
@@ -47,9 +48,10 @@ function NavBar() {
         }
         setModali(false);
       } else {
-        console.error(response.data.message);
+        setError(response.data.message); // Set the error message
       }
     } catch (error) {
+      setError('An unexpected error occurred. Please try again.');
       console.error('Error:', error);
     }
   };
@@ -66,6 +68,7 @@ function NavBar() {
           <form onSubmit={handleSubmit} method="Post">
             <div className={Classes.modalContainer}>
               <h5>{isSignUp ? "Sign Up" : "Sign In"}</h5>
+              {error && <p className={Classes.errorMessage}>{error}</p>} {/* Display error message */}
               <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
               {isSignUp && <input type="text" name="username" placeholder="Username" onChange={handleChange} required />}
               {isSignUp && <input type="text" name="name" placeholder="Name" onChange={handleChange} required />}
@@ -86,9 +89,9 @@ function NavBar() {
 
       <nav className={Classes.Navbar}>
         <div className={Classes.brand}>
-          <h1 className={Classes.NavLogo}>
+          <a href="\" className={Classes.NavLogo} onClick={() => window.location.reload()}>
             Yazo <span>Travels</span>
-          </h1>
+          </a>
           <div className={Classes.hamburger}>
             {toggle ? (
               <FontAwesomeIcon

@@ -17,6 +17,11 @@
 .NavLogo {
   font-size: 1.6rem;
   text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .NavLogo span {
@@ -80,8 +85,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.623);
+  backdrop-filter: blur(15px);
   z-index: 1000;
 }
 .userbox{
@@ -90,7 +95,7 @@
 .modalContainer {
   background: white;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   width: 90%;
   max-width: 400px;
@@ -129,7 +134,6 @@
   background-color: rgb(250, 108, 0);;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  text-decoration: underline;
   margin-top: 1rem;
 }
 
@@ -186,6 +190,7 @@
 
   .NavLogo {
     font-size: 1.2rem;
+    
   }
 }
 .userBox {
@@ -226,4 +231,9 @@
     align-items: flex-start;
     gap: 0.5rem;
   }
+}
+.errorMessage{
+  color: red;
+  margin-bottom: 10px;
+  font-size: 18px;
 }

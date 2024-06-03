@@ -55,6 +55,7 @@
 
 .bookingContainer {
   display: flex;
+  width: 800px;
   padding: 0.5rem;
   border-radius: 5px;
   justify-content: space-between;
@@ -145,6 +146,14 @@
 }
 
 /* responsive section */
+@media screen and (max-width: 850px) {
+  .bookingContainer {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
 @media screen and (max-width: 450px) {
   .heroContainer {
     width: 100vw;
@@ -164,7 +173,7 @@
   }
 
   .title {
-    width: 80%;
+    width: 60%;
     margin-bottom: 3rem;
   }
 
@@ -173,7 +182,7 @@
   }
 
   .bookingContainer {
-    width: 80%;
+    width: 60%;
     display: flex;
     gap: 1rem;
     flex-direction: column;
