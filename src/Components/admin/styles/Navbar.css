@@ -1,0 +1,248 @@
+/* Navbar styles */
+.Navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.8rem 3rem;
+    z-index: 1;
+  }
+  
+  .Navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+  }
+  .NavLogo {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .NavLogo span {
+    color: rgb(243, 111, 9);
+  }
+  
+  .active {
+    color: rgb(243, 111, 9) !important;
+  }
+  
+  .Navbar ul {
+    display: flex;
+    gap: 1.5rem;
+    text-transform: uppercase;
+  }
+  
+  .Navbar ul li {
+    font-size: 0.9rem;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-weight: 600;
+  }
+  
+  .Navbar ul li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .Navbar ul li a:hover {
+    color: rgb(243, 111, 9);
+  }
+  
+  .NavBtn {
+    padding: 0.5rem 1.1rem;
+    border-radius: 4px;
+    border: 1px solid rgb(243, 111, 9);
+    background-color: rgb(243, 111, 9);
+    color: white;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 2px 1px rgba(110, 48, 0, 0.16);
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  .menuIcon {
+    font-size: 1.5rem;
+  }
+  
+  /* Modal styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.623);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+  }
+  .userbox{
+    background-color: red;
+  }
+  .modalContainer {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .modalContainer h5 {
+    margin-bottom: 1rem;
+  }
+  
+  .modalContainer input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modalContainer button {
+    padding: 0.5rem 1rem;
+    background-color: rgb(243, 111, 9);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease-in-out;
+    margin: 10px;
+  }
+  
+  .modalContainer button:hover {
+    background-color: rgb(243, 145, 70);
+  }
+  
+  .modalContainer .toggleButton {
+    background: none;
+    border: none;
+    background-color: rgb(250, 108, 0);;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  /* Responsive section */
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .Navbar ul {
+      flex-direction: column;
+      position: fixed;
+      top: 60px;
+      align-items: center;
+      background-color: #fff;
+      width: 100%;
+      margin: auto;
+      padding: 1rem 0;
+      display: none;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      z-index: 1;
+    }
+  
+    .open {
+      opacity: 1 !important;
+      display: flex !important;
+    }
+  
+    .NavBtn {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 450px) {
+    .Navbar {
+      padding: 0.6rem 0;
+    }
+  
+    .brand {
+      width: 100vw;
+      display: flex;
+      padding: 0 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  @media screen and (max-width: 320px) {
+    .Navbar ul {
+      top: 6%;
+    }
+  
+    .NavLogo {
+      font-size: 1.2rem;
+      
+    }
+  }
+  .userBox {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between items */
+  }
+  
+  .userBox a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .userBox a:hover {
+    color: rgb(243, 111, 9);
+    cursor: pointer;
+  }
+  .userBox p{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    color: black;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  
+  /* Responsive adjustments for smaller screens */
+  @media screen and (max-width: 768px) {
+    .userBox {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+  .errorMessage{
+    color: red;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }

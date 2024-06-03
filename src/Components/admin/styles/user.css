@@ -1,0 +1,13 @@
+table {
+    border: 1px solid black;
+    width: 95%;
+
+}
+table th{
+    border-bottom: 1px solid black;
+}
+.add-user-form{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}

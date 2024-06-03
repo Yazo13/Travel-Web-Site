@@ -1,0 +1,32 @@
+.nav-list {
+    margin-top: 100px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav-list li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .logout-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: red; /* Customize the color */
+  }
+  
+  .user-info {
+    margin-top: 20px;
+    border-top: 1px solid #ccc; /* Add a border on top */
+    padding-top: 20px; /* Add some padding */
+  }
+  
+  .username,
+  .name {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+main{
+    margin-top: 100px;
+}
