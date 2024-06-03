@@ -11,7 +11,7 @@
 }
 
 .testimonialBox {
-  background-color: rgb(216, 236, 253);
+  background-color: rgb(230, 230, 230);
   padding: 0.9rem;
   border-radius: 10px;
   cursor: pointer;
@@ -20,7 +20,7 @@
 }
 
 .testimonialBox:hover {
-  transform: translateX(0.5rem) translateY(-0.9rem);
+  transform: translateY(-1  rem);
   box-shadow: rgb(0, 0, 0, 0.3) 0px 10px 10px 0px;
 }
 

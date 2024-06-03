@@ -14,19 +14,17 @@ include './config/conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
-
+    
     $name = isset($data['name']) ? trim($data['name']) : '';
     $username = isset($data['username']) ? trim($data['username']) : '';
     $email = isset($data['email']) ? trim($data['email']) : '';
     $password = isset($data['password']) ? trim($data['password']) : '';
 
-    // Basic validation
     if (empty($name) || empty($username) || empty($email) || empty($password)) {
         echo json_encode(['status' => 'error', 'message' => 'All fields are required.']);
         exit();
     }
 
-    // Additional validation
     if (strlen($name) <= 3) {
         echo json_encode(['status' => 'error', 'message' => 'Name must be more than 3 characters.']);
         exit();
@@ -50,8 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    $query = "INSERT INTO user (name, username, email, password) VALUES ('$name', '$username', '$email', '$hashedPassword')";
+    $query = "INSERT INTO user (name, username, email, password, user_role) VALUES ('$name', '$username', '$email', '$password', '2')";
     $success = mysqli_query($conn, $query);
 
     if ($success) {

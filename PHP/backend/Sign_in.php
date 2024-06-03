@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($password === $item['password']) {
                 $_SESSION['user'] = $item;
                 echo json_encode(['status' => 'success', 'user' => $item]);
-                exit(); 
+                exit();
             }
         }
         echo json_encode(['status' => 'error', 'message' => 'Incorrect Password!']);

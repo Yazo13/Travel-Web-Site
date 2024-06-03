@@ -9,20 +9,24 @@ table tbody tr td{
     border-left: 1px solid black;
     padding: 5px;
 }
-.add-user-form, .edit-user-form{
+.add-trip-form, .edit-trip-form{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.add-user-form input, .edit-user-form input {
+.add-trip-form .input, .edit-trip-form .input {
     padding-left: 10px;
     border-radius: 5px;
     border: 1px solid gray !important;
     height: 35px;
 }
-.add-user-form button, .edit-user-form button{
+.input_file {
+    padding-left: 10px;
+}
+
+.add-trip-form button, .edit-trip-form button{
     border: 1px solid rgb(139, 91, 2);
 }
 .buttons{

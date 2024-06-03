@@ -1,54 +1,42 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import Classes from "../Styles/Services.module.css";
-
-import service1 from "../assets/service1.png";
-import service2 from "../assets/service2.png";
-import service3 from "../assets/service3.png";
-import service4 from "../assets/service4.png";
+import axios from 'axios';
+import serviceIcon1 from "../assets/service1.png";
+import serviceIcon2 from "../assets/service2.png";
+import serviceIcon3 from "../assets/service3.png";
+import serviceIcon4 from "../assets/service4.png";
 
 function Service() {
-  const data = [
-    {
-      icon: service1,
-      title: "Get Best Prices",
-      subTitle:
-        "Pay through our application and save thousands and get amazing rewards.",
-    },
-    {
-      icon: service2,
-      title: "Covid Safe",
-      subTitle:
-        "We have all the curated hotels that have all the precaution for a covid safe environment.",
-    },
-    {
-      icon: service3,
-      title: "Flexible Payment",
-      subTitle:
-        " Enjoy the flexible payment through our app and get rewards on every payment.",
-    },
-    {
-      icon: service4,
-      title: "Find The Best Near You",
-      subTitle:
-        "Find the best hotels and places to visit near you in a single click.",
-    },
-  ];
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost/backend/a_services/get_service.php')
+      .then(response => {
+        setServices(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching services:', error);
+      });
+  }, []);
+
+  const serviceIcons = [serviceIcon1, serviceIcon2, serviceIcon3, serviceIcon4];
 
   return (
+      <>  
+      <div className="title">
+        <h1>Service</h1>
+      </div>
     <section id="service" className={Classes.service}>
-      {data.map((item) => {
-        return (
-          <div className={Classes.services}>
-            <div className={Classes.icon}>
-              <img src={item.icon} alt="" />
-            </div>
-            <h3>{item.title}</h3>
-            <p>{item.subTitle}</p>
+      {services.map((item, index) => (
+        <div key={index} className={Classes.services}>
+          <div className={Classes.icon}>
+            <img src={serviceIcons[index % serviceIcons.length]} alt="Service Icon" />
           </div>
-        );
-      })}
-    </section>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </section></>
   );
 }
 

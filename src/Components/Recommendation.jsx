@@ -21,7 +21,7 @@ function Recommendation() {
 
   return (
     <section id="recommendation" className="recommendation">
-      <div className="title">
+      <div className="title" >
         <h1>Recommend</h1>
       </div>
 
@@ -35,7 +35,7 @@ function Recommendation() {
             <p>{trip.description}</p>
 
             <div className="price">
-              <p>${trip.cost}</p>
+              <p>{trip.price} $</p>
             </div>
 
             <div className="details">
