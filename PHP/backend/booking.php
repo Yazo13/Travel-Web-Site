@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $exec = $stmt->execute();
+    $exec = $stmt->execute();   
     if ($exec) {
         echo json_encode(['status' => 'success', 'message' => 'Booking successful.']);
     } else {
@@ -41,6 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo json_encode(['status' => 'error', 'message' => 'Execution failed.']);
     }
 
-    $stmt->close();
-    $conn->close();
 }
+
+mysqli_close($conn);

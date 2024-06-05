@@ -32,3 +32,30 @@
 main{
     margin-top: 100px;
 }
+input {
+  padding-left: 10px;
+}
+.buttons{
+  display: flex;
+  gap: 20px;
+}
+
+.footer {
+  width: 100%;
+  padding: 1.5rem 4rem;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px 20px 0px 0px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.component-container{
+  background-color: rgba(214, 214, 214, 0.774);
+  padding: 20px;
+  border-radius: 10px;
+}

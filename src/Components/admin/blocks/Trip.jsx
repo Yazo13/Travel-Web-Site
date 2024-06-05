@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "../styles/trip.css"
+import "../styles/trip.css";
+
 function Trip() {
   const [trips, setTrips] = useState([]);
   const [newTrip, setNewTrip] = useState({});
@@ -15,6 +16,15 @@ function Trip() {
         console.error('Error fetching trips:', error);
       });
   }, []);
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === 'image_url') {
+      setNewTrip({ ...newTrip, image_url: files[0] });
+    } else {
+      setNewTrip({ ...newTrip, [name]: value });
+    }
+  };
 
   const addTrip = (e) => {
     e.preventDefault();
@@ -65,84 +75,29 @@ function Trip() {
 
   return (
     <div>
-      <form className="add-trip-form" method='post' encType='multipart/form-data' onSubmit={addTrip}>
-        <input className='input'
-          type="text"
-          placeholder="Title"
-          value={newTrip.title || ''}
-          onChange={(e) => setNewTrip({ ...newTrip, title: e.target.value })}
-        />
-        <textarea
-          placeholder="Description"
-          value={newTrip.description || ''}
-          onChange={(e) => setNewTrip({ ...newTrip, description: e.target.value })}
-        />
-        <input className='input'
-          type="text"
-          placeholder="Distance"
-          value={newTrip.distance || ''}
-          onChange={(e) => setNewTrip({ ...newTrip, distance: e.target.value })}
-        />
-        <input className='input'
-          type="text"
-          placeholder="Price"
-          value={newTrip.price || ''}
-          onChange={(e) => setNewTrip({ ...newTrip, price: e.target.value })}
-        />
-        <input className='input'
-          type="text"
-          placeholder="Duration"
-          value={newTrip.duration || ''}
-          onChange={(e) => setNewTrip({ ...newTrip, duration: e.target.value })}
-        />
-        <input className='input_file'
-          type="file"
-          placeholder="Image"
-          onChange={(e) => setNewTrip({ ...newTrip, image_url: e.target.files[0] })}
-        />
+      <h1 style={{ fontStyle: 'italic', marginTop: '10px' }}>Trip Table</h1>
+      <form className="add-trip-form" onSubmit={addTrip} encType="multipart/form-data">
+        <input className='input' type="text" name="title" placeholder="Title" value={newTrip.title || ''} onChange={handleChange} />
+        <textarea name="description" placeholder="Description" value={newTrip.description || ''} onChange={handleChange}></textarea>
+        <input className='input' type="text" name="distance" placeholder="Distance" value={newTrip.distance || ''} onChange={handleChange} />
+        <input className='input' type="text" name="price" placeholder="Price" value={newTrip.price || ''} onChange={handleChange} />
+        <input className='input' type="text" name="duration" placeholder="Duration" value={newTrip.duration || ''} onChange={handleChange} />
+        <input className='input_file' type="file" name="image_url" onChange={handleChange} />
         <button type="submit">Add Trip</button>
       </form>
       {editingTrip && (
         <>
           <h2>Edit Trip</h2>
-                <form className="edit-trip-form" method='post' encType='multipart/form-data' onSubmit={updateTrip}>
-          <input className='input'
-            type="text"
-            placeholder="Title"
-            value={editingTrip.title || ''}
-            onChange={(e) => setEditingTrip({ ...editingTrip, title: e.target.value })}
-          />
-          <textarea
-            placeholder="Description"
-            value={editingTrip.description || ''}
-            onChange={(e) => setEditingTrip({ ...editingTrip, description: e.target.value })}
-          />
-          <input className='input'
-            type="text"
-            placeholder="Distance"
-            value={editingTrip.distance || ''}
-            onChange={(e) => setEditingTrip({ ...editingTrip, distance: e.target.value })}
-          />
-          <input className='input'
-            type="text"
-            placeholder="Price"
-            value={editingTrip.price || ''}
-            onChange={(e) => setEditingTrip({ ...editingTrip, price: e.target.value })}
-          />
-          <input className='input'
-            type="text"
-            placeholder="Duration"
-            value={editingTrip.duration || ''}
-            onChange={(e) => setEditingTrip({ ...editingTrip, duration: e.target.value })}
-          />
-          <input className='input_file'
-            type="file"
-            placeholder="Image"
-            onChange={(e) => setEditingTrip({ ...editingTrip, image_url: e.target.files[0] })}
-          />
-          <button type="submit">Update Trip</button>
-          <button onClick={() => setEditingTrip(null)}>Cancel</button>
-        </form>
+          <form className="edit-trip-form" onSubmit={updateTrip} encType="multipart/form-data">
+            <input className='input' type="text" name="title" placeholder="Title" value={editingTrip.title || ''} onChange={(e) => setEditingTrip({ ...editingTrip, title: e.target.value })} />
+            <textarea name="description" placeholder="Description" value={editingTrip.description || ''} onChange={(e) => setEditingTrip({ ...editingTrip, description: e.target.value })}></textarea>
+            <input className='input' type="text" name="distance" placeholder="Distance" value={editingTrip.distance || ''} onChange={(e) => setEditingTrip({ ...editingTrip, distance: e.target.value })} />
+            <input className='input' type="text" name="price" placeholder="Price" value={editingTrip.price || ''} onChange={(e) => setEditingTrip({ ...editingTrip, price: e.target.value })} />
+            <input className='input' type="text" name="duration" placeholder="Duration" value={editingTrip.duration || ''} onChange={(e) => setEditingTrip({ ...editingTrip, duration: e.target.value })} />
+            <input className='input_file' type="file" name="image_url" onChange={(e) => setEditingTrip({ ...editingTrip, image_url: e.target.files[0] })} />
+            <button type="submit">Update Trip</button>
+            <button type="button" onClick={() => setEditingTrip(null)}>Cancel</button>
+          </form>
         </>
       )}
       <table>
@@ -167,7 +122,7 @@ function Trip() {
               <td>{trip.distance}</td>
               <td>{trip.price}</td>
               <td>{trip.duration}</td>
-              <td><img src={trip.Image_url} alt={trip.title} width="50" /></td>
+              <td><img src={`http://localhost:5173/${trip.Image_url}`} alt={trip.title} width="50" /></td>
               <td className='buttons'>
                 <button onClick={() => setEditingTrip(trip)}>Edit</button>
                 <button onClick={() => deleteTrip(trip.id)}>Delete</button>

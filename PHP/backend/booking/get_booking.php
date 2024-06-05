@@ -5,23 +5,23 @@ header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-$query = "SELECT * FROM service";
+$query = "SELECT * FROM booking";
 $result = mysqli_query($conn, $query);
 
-$services = array();
+$bookings = array();
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        $service = array(
+        $bookings[] = array(
             'id' => $row['id'],
-            'title' => $row['title'],
-            'description' => $row['description']
+            'destination' => $row['destination'],
+            'date_in' => $row['date_in'],
+            'date_out' => $row['date_out'],
+            'email' => $row['Email']
         );
-        $services[] = $service;
     }
 }
 
 header('Content-Type: application/json');
-echo json_encode($services);
-
+echo json_encode($bookings);
 
 mysqli_close($conn);

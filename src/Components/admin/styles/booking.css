@@ -1,28 +1,36 @@
 table {
     width: 95%;
 }
-table th{
+table th {
     border-bottom: 1px solid black;
 }
-table tbody tr td{
+table tbody tr td {
     padding-left: 30px;
     border-left: 1px solid black;
     padding: 5px;
     height: 50px;
+
 }
-.add-user-form, .edit-user-form{
+.add-booking-form, .edit-booking-form {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.add-user-form input, .edit-user-form input {
+.add-booking-form .input, .edit-booking-form .input {
     padding-left: 10px;
     border-radius: 5px;
     border: 1px solid gray !important;
     height: 35px;
 }
-.add-user-form button, .edit-user-form button{
+.input_file {
+    padding-left: 10px;
+}
+.add-booking-form button, .edit-booking-form button {
     border: 1px solid rgb(139, 91, 2);
+}
+.buttons {
+    display: flex;
+    gap: 20px;
 }

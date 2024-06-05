@@ -10,19 +10,18 @@ table tbody tr td{
     padding: 5px;
     height: 50px;
 }
-.add-user-form, .edit-user-form{
+.add-feedback-form, .edit-feedback-form{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.add-user-form input, .edit-user-form input {
+.add-feedback-form input, .edit-feedback-form input {
     padding-left: 10px;
     border-radius: 5px;
     border: 1px solid gray !important;
-    height: 35px;
 }
-.add-user-form button, .edit-user-form button{
+.add-feedback-form button, .edit-feedback-form button{
     border: 1px solid rgb(139, 91, 2);
 }

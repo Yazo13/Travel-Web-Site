@@ -30,11 +30,12 @@ const ToTop = styled.div`
   z-index: 999 !important;
 
   img {
-    width: 35px;
-    height: 35px;
-    background-color: rgb(243, 111, 9);
+    width: 45px;
+    height: 45px;
+    background-color: #0c90f6;
+    filter: invert(1);
     border-radius: 50%;
-    padding: 0.3rem;
+    padding: 0.5rem;
     cursor: pointer;
   }
 

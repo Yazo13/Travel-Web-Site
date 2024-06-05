@@ -54,6 +54,7 @@ function User() {
 
   return (
     <div>
+      <h1 style={{fontStyle: 'italic', marginTop: '10px'}}>Role Table</h1>
       <div className="add-user-form">
         <input
           type="text"

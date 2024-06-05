@@ -1,21 +1,23 @@
 <?php
-session_start();
-
-header("Access-Control-Allow-Origin: http://localhost:5173");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
 include '../config/conn.php';
 
-$query = "SELECT f.id, f.description, u.Username, u.name, f.user_id FROM feedback f JOIN user u ON f.user_id = u.id";
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Methods: GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+$query = "SELECT * FROM role";
 $result = mysqli_query($conn, $query);
 
-$feedback = array();
+$role = array();
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        $feedback[] = $row;
+        $role[] = array(
+            'id' => $row['id'],
+            'name' => $row['name']
+        );
     }
 }
 
 header('Content-Type: application/json');
-echo json_encode($feedback);
+echo json_encode($role);
+mysqli_close($conn);

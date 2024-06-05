@@ -23,7 +23,6 @@ function App() {
       <ScrollToTop />
       {userRole === '1' ? (
         <>
-        <Navbar />
         <AdminMain />
         </>
       ) : (
