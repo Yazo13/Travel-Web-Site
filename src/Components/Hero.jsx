@@ -64,7 +64,7 @@ function Hero() {
       {modal && (
         <div className={Classes.modal}>
           <div className={Classes.modalContainer}>
-            <h5>We received your information</h5>
+            <h3>We received your information</h3>
             <button onClick={() => setModal(false)}>Ok</button>
           </div>
         </div>
@@ -73,7 +73,7 @@ function Hero() {
       {alertModal && (
         <div className={Classes.alertModal}>
           <div className={Classes.alertModalContainer}>
-            <h5>Please sign in to book a trip.</h5>
+            <h3>Please sign in to book a trip.</h3>
             <button onClick={() => setAlertModal(false)}>Ok</button>
           </div>
         </div>
@@ -82,7 +82,7 @@ function Hero() {
       {error && (
         <div className={Classes.alertModal}>
           <div className={Classes.alertModalContainer}>
-            <h5>Error</h5>
+            <h3>Error</h3>
             <p>{error}</p>
             <button onClick={() => setError("")}>Ok</button>
           </div>

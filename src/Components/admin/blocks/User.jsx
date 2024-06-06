@@ -42,7 +42,7 @@ function User() {
   };
 
   const deleteUser = (id) => {
-    axios.delete(`http://localhost/backend/user/delete_user.php?id=${id}`)
+    axios.delete(`http://localhost/backend/user/add_user.php?del_user=${id}`)
       .then(() => {
         setUsers(users.filter(user => user.id !== id));
         window.location.reload()

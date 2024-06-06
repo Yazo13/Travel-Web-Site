@@ -15,7 +15,13 @@ table tbody tr td{
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+.add-trip-form textarea{
+    padding: 10px;
+    box-sizing: border-box;
+    height: 38px;
+    border-radius: 5px;
 }
 .add-trip-form .input, .edit-trip-form .input {
     padding-left: 10px;

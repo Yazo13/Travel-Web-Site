@@ -24,7 +24,7 @@ function Booking() {
       .then(response => {
         setBookings([...bookings, response.data]);
         setNewBooking({ destination: '', date_in: '', date_out: '', email: '' });
-        window.location.reload();
+        // window.location.reload();
       })
       .catch(error => {
         console.error('Error adding booking:', error);

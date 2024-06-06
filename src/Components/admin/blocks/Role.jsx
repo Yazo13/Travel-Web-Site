@@ -34,14 +34,20 @@ function Role() {
   const updateRole = (e) => {
     e.preventDefault();
   
-    axios.post('http://localhost/backend/role/edit_role.php', editingRole)
-      .then(response => {
-        setRoles(roles.map(role => role.id === editingRole.id ? response.data : role));
-        setEditingRole(null);
-      })
-      .catch(error => {
-        console.error('Error updating role:', error);
-      });
+    axios.post('http://localhost/backend/role/edit_role.php', {
+      id: editingRole.id,
+      name: editingRole.name
+    })
+    .then(response => {
+      const updatedRole = response.data;
+      setRoles(roles.map(role => role.id === updatedRole.id ? updatedRole : role));
+      setEditingRole(null);
+      console.log(response)
+      // window.location.reload();
+    })
+    .catch(error => {
+      console.error('Error updating role:', error);
+    });
   };
   
   const deleteRole = (id) => {
